@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="description" content="レオパードゲッコー（レオパ）のモルフ遺伝計算機。親個体のモルフ情報から子個体の出現確率を正確に計算。iOS・Android対応。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0D0D1A">
+  <title>GeckoBreedingManagement - レオパ繁殖管理</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- ヘッダー -->
+    <header class="app-header">
+      <div class="header-glow"></div>
+      <div class="header-content">
+        <div class="logo">
+          <img src="icon-512.png" alt="Gecko" class="logo-icon-img">
+          <div class="logo-text">
+            <h1>GeckoBreedingManagement</h1>
+            <p class="subtitle">レオパードゲッコー 繁殖管理</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ナビゲーションタブ（6タブ構成） -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="calculator" id="tab-calculator">
+        <span class="tab-icon">🧮</span>
+        <span class="tab-label">計算機</span>
+      </button>
+      <button class="tab-btn" data-tab="combos" id="tab-combos">
+        <span class="tab-icon">🔗</span>
+        <span class="tab-label">コンボ</span>
+      </button>
+      <button class="tab-btn" data-tab="breeding" id="tab-breeding">
+        <span class="tab-icon">🥚</span>
+        <span class="tab-label">繁殖</span>
+      </button>
+      <button class="tab-btn" data-tab="events" id="tab-events">
+        <span class="tab-icon">📅</span>
+        <span class="tab-label">イベント</span>
+      </button>
+      <button class="tab-btn" data-tab="guide" id="tab-guide">
+        <span class="tab-icon">📖</span>
+        <span class="tab-label">図鑑</span>
+      </button>
+      <button class="tab-btn" data-tab="knowledge" id="tab-knowledge">
+        <span class="tab-icon">💡</span>
+        <span class="tab-label">豆知識</span>
+      </button>
+    </nav>
+
+    <!-- イベントタブ -->
+    <main class="tab-content" id="content-events">
+      <div class="events-container">
+        <h2 class="section-title">📅 爬虫類イベント情報</h2>
+        <p class="section-desc">今後の爬虫類展示会・即売会スケジュール</p>
+        <div class="event-filter-pills" id="event-region-filter">
+          <button class="pill active" data-region="all" onclick="setEventFilter('all')">すべて</button>
+          <button class="pill" data-region="kanto" onclick="setEventFilter('kanto')">関東</button>
+          <button class="pill" data-region="kansai" onclick="setEventFilter('kansai')">関西</button>
+          <button class="pill" data-region="chubu" onclick="setEventFilter('chubu')">中部</button>
+          <button class="pill" data-region="other" onclick="setEventFilter('other')">その他</button>
+        </div>
+        <div class="event-list" id="event-list">
+        </div>
+      </div>
+    </main>
+
+    <!-- 計算機タブ（デフォルト表示） -->
+    <div class="tab-content active" id="content-calculator">
+      <div class="calculator-container">
+        <!-- 親1（オス） -->
+        <div class="parent-card" id="parent1-card">
+          <div class="parent-header">
+            <span class="gender-icon male">♂</span>
+            <h2>オス (Male)</h2>
+          </div>
+          <div class="selected-morphs" id="parent1-morphs">
+            <p class="empty-text">モルフを追加してください</p>
+          </div>
+          <button class="add-morph-btn" onclick="openMorphSelector(1)" id="add-morph-parent1">
+            <span>+ モルフを追加</span>
+          </button>
+        </div>
+
+        <!-- 交配アイコン -->
+        <div class="breeding-divider">
+          <div class="breeding-icon">
+            <span>×</span>
+          </div>
+        </div>
+
+        <!-- 親2（メス） -->
+        <div class="parent-card" id="parent2-card">
+          <div class="parent-header">
+            <span class="gender-icon female">♀</span>
+            <h2>メス (Female)</h2>
+          </div>
+          <div class="selected-morphs" id="parent2-morphs">
+            <p class="empty-text">モルフを追加してください</p>
+          </div>
+          <button class="add-morph-btn" onclick="openMorphSelector(2)" id="add-morph-parent2">
+            <span>+ モルフを追加</span>
+          </button>
+        </div>
+
+        <!-- 計算ボタン -->
+        <button class="calculate-btn" onclick="calculateResults()" id="calculate-btn">
+          <span class="calc-icon">🧮</span>
+          <span>計算する</span>
+          <div class="btn-shimmer"></div>
+        </button>
+
+        <!-- 結果表示 -->
+        <div class="results-section" id="results-section" style="display: none;">
+          <h2 class="results-title">
+            <span class="results-icon">🥚</span>
+            ハッチリング予測
+          </h2>
+          <div class="results-grid" id="results-grid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- モルフ図鑑タブ -->
+    <div class="tab-content" id="content-guide">
+      <div class="guide-container">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="モルフを検索..." id="morph-search" oninput="filterMorphGuide()">
+        </div>
+        <div class="filter-pills">
+          <button class="pill active" data-filter="all" onclick="setGuideFilter('all')">すべて</button>
+          <button class="pill" data-filter="recessive" onclick="setGuideFilter('recessive')">劣性</button>
+          <button class="pill" data-filter="dominant" onclick="setGuideFilter('dominant')">優性</button>
+          <button class="pill" data-filter="codominant" onclick="setGuideFilter('codominant')">共優性</button>
+          <button class="pill" data-filter="polygenic" onclick="setGuideFilter('polygenic')">ポリジェニック</button>
+        </div>
+        <div class="morph-list" id="morph-list">
+        </div>
+      </div>
+    </div>
+
+    <!-- コンボタブ -->
+    <div class="tab-content" id="content-combos">
+      <div class="combos-container">
+        <!-- 逆計算セクション -->
+        <div class="reverse-calc-section">
+          <h2 class="section-title">🔄 逆計算（コンボを作るには？）</h2>
+          <p class="section-desc">目的のコンボモルフを選択すると、必要な親の遺伝子構成を表示します。</p>
+          <select id="reverse-combo-select" class="reverse-select" onchange="reverseCalc(this.value)">
+            <option value="">コンボモルフを選択...</option>
+          </select>
+          <div id="reverse-result">
+            <p class="reverse-placeholder">上のリストからコンボモルフを選択すると、必要な親の組み合わせが表示されます。</p>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 class="section-title">コンビネーションモルフ</h2>
+        <p class="section-desc">人気のある遺伝子の組み合わせ（コンボモルフ）の一覧です。</p>
+        <div class="combo-list" id="combo-list">
+        </div>
+      </div>
+    </div>
+
+    <!-- 豆知識タブ -->
+    <div class="tab-content" id="content-knowledge">
+      <div class="knowledge-container">
+        <h2 class="section-title">📚 レオパ豆知識</h2>
+        <p class="section-desc">初心者からブリーダーまで役立つ飼育・繁殖・モルフの知識集</p>
+        <div class="knowledge-filter-pills" id="knowledge-category-filter">
+        </div>
+        <div class="knowledge-list" id="knowledge-list">
+        </div>
+      </div>
+    </div>
+
+    <!-- 繁殖管理タブ -->
+    <div class="tab-content" id="content-breeding">
+      <div class="breeding-container">
+        <h2 class="section-title">🥚 繁殖カレンダー</h2>
+        <p class="section-desc">交尾日を記録して産卵・ハッチの予定を管理</p>
+
+        <!-- 新規記録ボタン -->
+        <button class="add-record-btn" onclick="openBreedingModal()">
+          <span>＋ 新しい繁殖記録を追加</span>
+        </button>
+
+        <!-- 繁殖記録リスト -->
+        <div class="breeding-records" id="breeding-records">
+          <p class="empty-text">繁殖記録がありません。上のボタンから追加してください。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- モルフ選択モーダル -->
+    <div class="modal-overlay" id="morph-modal" style="display: none;">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modal-title">モルフを追加</h3>
+          <button class="modal-close" onclick="closeMorphSelector()" id="close-modal">✕</button>
+        </div>
+        <div class="modal-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="モルフを検索..." id="modal-morph-search" oninput="filterModalMorphs()">
+        </div>
+        <div class="modal-body" id="modal-morph-list">
+        </div>
+      </div>
+    </div>
+
+    <!-- Het選択モーダル -->
+    <div class="modal-overlay" id="het-modal" style="display: none;">
+      <div class="modal modal-small">
+        <div class="modal-header">
+          <h3 id="het-modal-title">遺伝子型を選択</h3>
+          <button class="modal-close" onclick="closeHetModal()" id="close-het-modal">✕</button>
+        </div>
+        <div class="modal-body het-options" id="het-options">
+        </div>
+      </div>
+    </div>
+
+    <!-- 繁殖記録モーダル -->
+    <div class="modal-overlay" id="breeding-modal" style="display: none;">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>繁殖記録を追加</h3>
+          <button class="modal-close" onclick="closeBreedingModal()">✕</button>
+        </div>
+        <div class="modal-body breeding-form">
+          <div class="form-group">
+            <label>ペア名（任意）</label>
+            <input type="text" id="breed-pair-name" placeholder="例: オス1 × メス3">
+          </div>
+          <div class="form-group">
+            <label>交尾日 *</label>
+            <input type="date" id="breed-mating-date" required>
+          </div>
+          <div class="form-group">
+            <label>孵卵温度（℃）</label>
+            <input type="number" id="breed-incubation-temp" placeholder="29" min="24" max="34" step="0.5" value="29">
+          </div>
+          <div class="form-group">
+            <label>メモ</label>
+            <textarea id="breed-memo" placeholder="親のモルフや注意点など" rows="2"></textarea>
+          </div>
+          <button class="calculate-btn" onclick="saveBreedingRecord()" style="margin-top: 12px;">
+            <span>💾 保存する</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="app-footer">
+      <p>GeckoBreedingManagement v3.0.0</p>
+      <p class="footer-date">2026.02.16 更新</p>
+    </footer>
+  </div>
+
+  <script src="src/data/morphs.js"></script>
+  <script src="src/data/events.js"></script>
+  <script src="src/data/knowledge.js"></script>
+  <script src="src/engine/genetics.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
