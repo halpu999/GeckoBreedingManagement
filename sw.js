@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gecko-bm-v3.0.0';
+const CACHE_NAME = 'gecko-bm-v3.1.0';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -9,7 +9,19 @@ const ASSETS_TO_CACHE = [
     './src/data/morphs.js',
     './src/data/events.js',
     './src/data/knowledge.js',
-    './src/engine/genetics.js'
+    './src/engine/genetics.js',
+    './images/morphs/tremperAlbino.png',
+    './images/morphs/bellAlbino.png',
+    './images/morphs/rainwaterAlbino.png',
+    './images/morphs/blizzard.png',
+    './images/morphs/murphyPatternless.png',
+    './images/morphs/eclipse.png',
+    './images/morphs/mackSnow.png',
+    './images/morphs/enigma.png',
+    './images/morphs/whiteYellow.png',
+    './images/morphs/giant.png',
+    './images/morphs/darkKnight.png',
+    './images/morphs/marbleEye.png'
 ];
 
 // インストール時にアセットをキャッシュ

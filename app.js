@@ -444,18 +444,24 @@ function renderMorphGuide() {
         <span class="guide-card-type ${morph.type}">${typeLabels[morph.type]}</span>
       </div>
       <div class="guide-card-image-wrap">
-        <div class="guide-card-illustration" style="background: linear-gradient(135deg, ${morph.color || '#A569BD'}22, ${morph.color || '#A569BD'}44);">
-          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="gecko-silhouette">
-            <defs>
-              <linearGradient id="grad-${morph.id}" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:${morph.color || '#A569BD'};stop-opacity:0.6" />
-                <stop offset="100%" style="stop-color:${morph.color || '#A569BD'};stop-opacity:0.9" />
-              </linearGradient>
-            </defs>
-            <path d="M45 25C30 20 20 30 25 40C20 42 15 38 12 42C10 46 14 48 18 47C16 50 13 48 10 50C8 54 12 56 16 54C20 52 22 50 25 48C28 55 35 58 42 56C45 55 48 52 50 48C55 55 62 58 68 56C72 54 75 50 76 45C80 50 85 52 90 50C92 48 90 44 86 44C90 42 94 40 92 36C88 32 82 35 80 38C78 30 72 25 65 25C58 25 52 28 50 35C48 28 45 25 45 25Z" fill="url(#grad-${morph.id})" opacity="0.5"/>
-            <text x="100" y="50" text-anchor="middle" fill="${morph.color || '#A569BD'}" font-size="14" font-weight="700" font-family="'Inter', sans-serif" opacity="0.8">${morph.name}</text>
-          </svg>
-        </div>
+        ${morph.image ? `
+          <div class="guide-card-photo">
+            <img src="${morph.image}" alt="${morph.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'guide-card-illustration\\' style=\\'background: linear-gradient(135deg, ${morph.color || '#A569BD'}22, ${morph.color || '#A569BD'}44);\\'><span class=\\'guide-fallback-label\\'>${morph.name}</span></div>'">
+          </div>
+        ` : `
+          <div class="guide-card-illustration" style="background: linear-gradient(135deg, ${morph.color || '#A569BD'}22, ${morph.color || '#A569BD'}44);">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="gecko-silhouette">
+              <defs>
+                <linearGradient id="grad-${morph.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:${morph.color || '#A569BD'};stop-opacity:0.6" />
+                  <stop offset="100%" style="stop-color:${morph.color || '#A569BD'};stop-opacity:0.9" />
+                </linearGradient>
+              </defs>
+              <path d="M45 25C30 20 20 30 25 40C20 42 15 38 12 42C10 46 14 48 18 47C16 50 13 48 10 50C8 54 12 56 16 54C20 52 22 50 25 48C28 55 35 58 42 56C45 55 48 52 50 48C55 55 62 58 68 56C72 54 75 50 76 45C80 50 85 52 90 50C92 48 90 44 86 44C90 42 94 40 92 36C88 32 82 35 80 38C78 30 72 25 65 25C58 25 52 28 50 35C48 28 45 25 45 25Z" fill="url(#grad-${morph.id})" opacity="0.5"/>
+              <text x="100" y="50" text-anchor="middle" fill="${morph.color || '#A569BD'}" font-size="14" font-weight="700" font-family="'Inter', sans-serif" opacity="0.8">${morph.name}</text>
+            </svg>
+          </div>
+        `}
       </div>
       <div class="guide-card-desc">${morph.description || ''}</div>
       ${morph.healthWarning ? `<div class="guide-card-warning">${morph.healthWarning}</div>` : ''}

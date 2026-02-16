@@ -30,6 +30,7 @@ const MORPH_DATABASE = {
     healthWarning: '💡 アルビノ全般：光に敏感で視力が弱い傾向。強い光を避ける飼育が望ましい。UVBライトは弱めに。',
     ethicalConcern: null,
     color: '#E8A850',
+    image: 'images/morphs/tremperAlbino.png',
   },
   bellAlbino: {
     id: 'bellAlbino',
@@ -41,6 +42,7 @@ const MORPH_DATABASE = {
     healthWarning: '💡 アルビノ全般：光に敏感で視力が弱い傾向。ベルアルビノは特に目の色素が薄い。',
     ethicalConcern: null,
     color: '#D4A0C0',
+    image: 'images/morphs/bellAlbino.png',
   },
   rainwaterAlbino: {
     id: 'rainwaterAlbino',
@@ -52,6 +54,7 @@ const MORPH_DATABASE = {
     healthWarning: '💡 アルビノ全般：光に敏感。やや小型で体質が弱い個体もあり。',
     ethicalConcern: null,
     color: '#F0E0C0',
+    image: 'images/morphs/rainwaterAlbino.png',
   },
   blizzard: {
     id: 'blizzard',
@@ -63,6 +66,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#E0E0E0',
+    image: 'images/morphs/blizzard.png',
   },
   murphyPatternless: {
     id: 'murphyPatternless',
@@ -74,6 +78,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#C8B888',
+    image: 'images/morphs/murphyPatternless.png',
   },
   eclipse: {
     id: 'eclipse',
@@ -85,6 +90,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#3A3A5C',
+    image: 'images/morphs/eclipse.png',
   },
   marbleEye: {
     id: 'marbleEye',
@@ -96,6 +102,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#8B7D6B',
+    image: 'images/morphs/marbleEye.png',
   },
   cipher: {
     id: 'cipher',
@@ -107,6 +114,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#5C6B8A',
+    image: null,
   },
   ndbe: {
     id: 'ndbe',
@@ -118,6 +126,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ メスの不妊率が高いとの報告あり。一部の個体で眼の形成異常が見られることがある。繁殖計画では注意が必要。',
     ethicalConcern: 'moderate',
     color: '#2C2C4A',
+    image: null,
   },
   ghost: {
     id: 'ghost',
@@ -129,6 +138,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#B0B8C8',
+    image: null,
   },
   redStripe: {
     id: 'redStripe',
@@ -140,6 +150,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#C84040',
+    image: null,
   },
 
   // ========== 優性遺伝 (Dominant) ==========
@@ -153,6 +164,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ 【繁殖非推奨】エニグマ症候群（常染色体優性の神経障害）：首の傾き（ヘッドチルト）、旋回行動（サークリング）、スターゲイジング、痙攣、デスロール。ストレスで悪化し改善不能。IHS（国際爬虫類学会）禁止リスト掲載。MorphMarketでも販売禁止。神経症状はエニグマ遺伝子そのものに結びついており、選別交配では排除不可能。',
     ethicalConcern: 'high',
     color: '#FFD700',
+    image: 'images/morphs/enigma.png',
   },
   whiteYellow: {
     id: 'whiteYellow',
@@ -164,6 +176,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ W&Y症候群（神経症状）：一部個体で震え、旋回行動、首の傾き。初期の近親交配ラインで発症リスク高。ただしEnigmaとは異なり、信頼あるブリーダーの良質なラインでは症状が改善されたラインも存在。片親のみW&Yでの交配推奨。',
     ethicalConcern: 'moderate',
     color: '#FFEE88',
+    image: 'images/morphs/whiteYellow.png',
   },
   lemonFrost: {
     id: 'lemonFrost',
@@ -175,6 +188,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ 【繁殖非推奨】SPINT1遺伝子変異による皮膚腫瘍（虹色素胞腫/iridophoroma）の極めて高いリスク。約80%が5歳までに腫瘍を発症し、癌化する可能性あり。寿命が大幅に短縮。美しい体色と腫瘍リスクは同じ遺伝子変異に由来するため分離不可能。MorphMarketでも販売禁止。開発者自身がブリーディングプログラムを中止。',
     ethicalConcern: 'high',
     color: '#FFF44F',
+    image: null,
   },
 
   // ========== 共優性 / 不完全優性 (Co-dominant / Incomplete Dominant) ==========
@@ -190,6 +204,7 @@ const MORPH_DATABASE = {
     healthWarning: '💡 スーパースノー：稀に鼻の形成異常が報告される。問題のあるモルフとの組み合わせで顎の異常が出やすい。',
     ethicalConcern: null,
     color: '#C8D8E8',
+    image: 'images/morphs/mackSnow.png',
   },
   tugSnow: {
     id: 'tugSnow',
@@ -203,6 +218,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#D0E0F0',
+    image: null,
   },
   gemSnow: {
     id: 'gemSnow',
@@ -216,6 +232,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#E0E8F0',
+    image: null,
   },
   giant: {
     id: 'giant',
@@ -229,6 +246,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#90B090',
+    image: 'images/morphs/giant.png',
   },
   gMackSnow: {
     id: 'gMackSnow',
@@ -242,6 +260,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#D8E4F0',
+    image: null,
   },
   darkKnight: {
     id: 'darkKnight',
@@ -255,6 +274,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#1A1A30',
+    image: 'images/morphs/darkKnight.png',
   },
 };
 
