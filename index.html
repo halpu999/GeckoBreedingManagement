@@ -279,6 +279,16 @@
   <script src="src/data/knowledge.js"></script>
   <script src="src/engine/genetics.js"></script>
   <script src="app.js"></script>
+  <script>
+    // Service Worker 登録
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('[SW] 登録成功:', reg.scope))
+          .catch((err) => console.error('[SW] 登録失敗:', err));
+      });
+    }
+  </script>
 </body>
 
 </html>
