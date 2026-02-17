@@ -339,12 +339,20 @@
     }
 
     function updateApp() {
-      // 待機中のワーカーがいればskipWaitingを送信、なければリロード
       navigator.serviceWorker.getRegistration().then(reg => {
         if (reg && reg.waiting) {
+          // 待機中のワーカーがいればskipWaitingを送信し、controllerchangeイベントでリロードさせる
           reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+          // ボタンを「更新中...」に変更
+          const btn = document.querySelector('.update-toast-btn');
+          if (btn) {
+            btn.innerHTML = '更新中...';
+            btn.disabled = true;
+          }
+        } else {
+          // 待機中のワーカーがいなければ通常のリロード
+          window.location.reload();
         }
-        window.location.reload();
       });
     }
 
