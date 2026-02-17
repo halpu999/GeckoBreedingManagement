@@ -286,13 +286,13 @@ const POLYGENIC_TRAITS = [
   { id: 'hypo', name: 'Hypo (Hypomelanistic)', japaneseName: 'ハイポ', description: '黒い斑点の減少。体に10個以下の黒斑点で定義される。', image: 'images/morphs/hypo.png' },
   { id: 'superHypo', name: 'Super Hypo', japaneseName: 'スーパーハイポ', description: '体に黒い斑点がまったくない。タンジェリンと組み合わせてSunglowを作る際に使用。', image: 'images/morphs/superHypo.png' },
   { id: 'carrotTail', name: 'Carrot Tail', japaneseName: 'キャロットテイル', description: '尾の面積の15%以上がオレンジ色。タンジェリン系と相性が良い。', image: 'images/morphs/carrotTail_v2.png' },
-  { id: 'carrotHead', name: 'Carrot Head', japaneseName: 'キャロットヘッド', description: '頭部にオレンジ色のパターンが現れる。', image: null },
+  { id: 'carrotHead', name: 'Carrot Head', japaneseName: 'キャロットヘッド', description: '頭部にオレンジ色のパターンが現れる。', image: 'images/morphs/carrotHead.png' },
   { id: 'jungle', name: 'Jungle', japaneseName: 'ジャングル', description: '不規則で崩れたバンドパターン。ワイルドタイプの均一なバンドとは異なる独特の模様。Jungle Giants系統が有名。', image: 'images/morphs/jungle.png' },
   { id: 'stripe', name: 'Stripe', japaneseName: 'ストライプ', description: '背中に沿ったストライプパターン。RAPTORのコンポーネントとして重要。', image: 'images/morphs/stripe.png' },
   { id: 'reverseStripe', name: 'Reverse Stripe', japaneseName: 'リバースストライプ', description: '頭から尾まで走る暗い中央ストライプ。両サイドに明るいストライプ。Cipherの幼体パターンでもある。', image: 'images/morphs/reverseStripe.png' },
   { id: 'boldStripe', name: 'Bold Stripe', japaneseName: 'ボールドストライプ', description: '背中に太く明瞭なストライプパターン。Clownモルフの構成要素の一つ。', image: 'images/morphs/boldStripe.png' },
   { id: 'aberrant', name: 'Aberrant', japaneseName: 'アベラント', description: '不規則な体のパターンや不完全なバンド。バンドが崩れ始めた中間段階で、Jungleとの境界が曖昧。', image: 'images/morphs/aberrant.png' },
-  { id: 'baldy', name: 'Baldy', japaneseName: 'ボールディ', description: '頭部に斑点やパターンがない状態。スーパーハイポと併せて出現することが多い。', image: null },
+  { id: 'baldy', name: 'Baldy', japaneseName: 'ボールディ', description: '頭部に斑点やパターンがない状態。スーパーハイポと併せて出現することが多い。', image: 'images/morphs/baldy.png' },
   { id: 'highYellow', name: 'High Yellow', japaneseName: 'ハイイエロー', description: '野生個体からの選別交配で作られた基本モルフ。鮮やかな黄色の体に黒い斑点。初心者に最も人気で安価。', image: 'images/morphs/highYellow.png' },
   { id: 'emerine', name: 'Emerine', japaneseName: 'エメリン', description: '緑がかった色合い。G Projectの要素として使用。Clownモルフの緑色成分に貢献。', color: '#2E8B57', image: 'images/morphs/emerine.png' },
   { id: 'melanistic', name: 'Melanistic', japaneseName: 'メラニスティック', description: '暗色色素（メラニン）の増加。全体的に暗い体色。Black Night, Black Pearl, Charcoal系の基礎。', image: 'images/morphs/melanistic.png' },
@@ -385,6 +385,7 @@ const COMBINATION_MORPHS = [
   // ===== Tremper Albino 系 =====
   {
     id: 'raptor',
+    image: 'images/morphs/raptor.png',
     name: 'RAPTOR',
     japaneseName: 'ラプター',
     description: 'Red-eye Albino Patternless Tremper ORangeの略。赤い目とオレンジのパターンレスボディが特徴。最も有名なコンビネーションモルフの一つ。',
@@ -393,6 +394,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'aptor',
+    image: 'images/morphs/aptor.png',
     name: 'APTOR',
     japaneseName: 'アプター',
     description: 'Albino Patternless Tremper ORangeの略。RAPTORからEclipseを除いた組み合わせ。タンジェリンとパターンレスストライプを持つトレンパーアルビノ。',
@@ -401,6 +403,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'sunglow',
+    image: 'images/morphs/sunglow.png',
     name: 'Sunglow',
     japaneseName: 'サングロー',
     description: 'トレンパーアルビノとスーパーハイポの組み合わせ。明るいイエロー〜オレンジのボディに斑点なし。Hybino（ハイビノ）とも呼ばれる。非常に人気が高い。',
@@ -409,6 +412,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'diabloBlanco',
+    image: 'images/morphs/diabloBlanco.png',
     name: 'Diablo Blanco',
     japaneseName: 'ディアブロブランコ',
     description: '全身純白に赤い目。Blizzard + Tremper Albino + Eclipse + Patternless Stripeの4つの劣性遺伝子組み合わせ。非常に美しく人気が高い。',
@@ -417,6 +421,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'blazingBlizzard',
+    image: 'images/morphs/blazingBlizzard.png',
     name: 'Blazing Blizzard',
     japaneseName: 'ブレイジングブリザード',
     description: 'トレンパーアルビノとブリザードの組み合わせ。パターンのない白〜クリーム色の体色にアルビノの赤い目。',
@@ -425,6 +430,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'ember',
+    image: 'images/morphs/ember.png',
     name: 'Ember',
     japaneseName: 'エンバー',
     description: 'マーフィーパターンレス + トレンパーアルビノ + エクリプスの組み合わせ。レモンイエローの体に赤い目。',
@@ -433,6 +439,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'nova',
+    image: 'images/morphs/nova.png',
     name: 'Nova',
     japaneseName: 'ノバ',
     description: '2007年初作出。エニグマ + RAPTOR構成（トレンパーアルビノ + エクリプス）の組み合わせ。',
@@ -442,6 +449,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'dreamsickle',
+    image: 'images/morphs/dreamsickle.png',
     name: 'Dreamsicle',
     japaneseName: 'ドリームシクル',
     description: '2008年にA&M Geckosが初作出。Mack Snow + RAPTOR + Enigma。白いボディにオレンジのアクセント。ハッチ時は半透明で、成長とともに白背景に。',
@@ -453,6 +461,7 @@ const COMBINATION_MORPHS = [
   // ===== Bell Albino 系 =====
   {
     id: 'radar',
+    image: 'images/morphs/radar.png',
     name: 'RADAR',
     japaneseName: 'レーダー',
     description: 'ベルアルビノ + エクリプスの組み合わせ。RAPTORのBell版。赤い目が特に鮮やかで、タンジェリンの影響を受けた個体も多い。',
@@ -461,6 +470,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'whiteKnight',
+    image: 'images/morphs/whiteKnight.png',
     name: 'White Knight',
     japaneseName: 'ホワイトナイト',
     description: 'ベルアルビノ + エクリプス + ブリザード。全身真白で赤い目。Diablo BlancoのBell版。',
@@ -469,6 +479,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'aurora',
+    image: 'images/morphs/aurora.png',
     name: 'Aurora',
     japaneseName: 'オーロラ',
     description: 'ベルアルビノ + ホワイト&イエローの組み合わせ。W&Yの模様崩しとベルアルビノの色彩が融合。',
@@ -480,6 +491,7 @@ const COMBINATION_MORPHS = [
   // ===== Rainwater Albino 系 =====
   {
     id: 'typhoon',
+    image: 'images/morphs/typhoon.png',
     name: 'Typhoon',
     japaneseName: 'タイフーン',
     description: 'レインウォーターアルビノ + エクリプスの組み合わせ。RAPTORのRainwater版。淡い体色にソリッドな赤い目。',
@@ -488,6 +500,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'cyclone',
+    image: 'images/morphs/cyclone.png',
     name: 'Cyclone',
     japaneseName: 'サイクロン',
     description: 'レインウォーターアルビノ + マーフィーパターンレス + エクリプスの組み合わせ。Rainwater版のEmber。',
@@ -498,6 +511,7 @@ const COMBINATION_MORPHS = [
   // ===== Snow 系 =====
   {
     id: 'snowGlow',
+    image: 'images/morphs/snowGlow.png',
     name: 'Snow Glow',
     japaneseName: 'スノーグロー',
     description: 'マックスノー + トレンパーアルビノ。スノーの白さとアルビノの特徴を兼ね備える。',
@@ -506,6 +520,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'mack_snow_raptor',
+    image: 'images/morphs/mack_snow_raptor.png',
     name: 'Mack Snow RAPTOR',
     japaneseName: 'マックスノーラプター',
     description: 'マックスノー + RAPTOR構成。スノーの白さとRAPTORの赤目を持つ。',
@@ -514,6 +529,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'mack_snow_radar',
+    image: 'images/morphs/mack_snow_radar.png',
     name: 'Mack Snow RADAR',
     japaneseName: 'マックスノーレーダー',
     description: 'マックスノー + RADAR構成（ベルアルビノ + エクリプス）。',
@@ -522,6 +538,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'blackHole',
+    image: 'images/morphs/blackHole.png',
     name: 'Black Hole',
     japaneseName: 'ブラックホール',
     description: 'マックスノー + エクリプスのダーク系。ソリッドブラックの目に暗い体色。',
@@ -530,6 +547,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'totalEclipse',
+    image: 'images/morphs/totalEclipse.png',
     name: 'Total Eclipse',
     japaneseName: 'トータルエクリプス',
     description: 'スーパースノー + エクリプスの組み合わせ。白い背景に高コントラスト。Galaxy/Pied Galaxyのベースモルフ。',
@@ -539,6 +557,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'galaxy',
+    image: 'images/morphs/galaxy.png',
     name: 'Galaxy',
     japaneseName: 'ギャラクシー',
     description: 'スーパースノー + エクリプスにパラドクスマーキングを加えた個体。市場で独自モルフとして扱われるが、遺伝的には「Super Snow Eclipse + Paradox」であり、新しい遺伝子ではないとする見方もある。Pied Galaxyという派生も存在。',
@@ -548,6 +567,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'universe',
+    image: 'images/morphs/universe.png',
     name: 'Universe',
     japaneseName: 'ユニバース',
     description: 'スーパースノー + エクリプス + ホワイト&イエロー。Galaxyの拡張版。',
@@ -559,6 +579,7 @@ const COMBINATION_MORPHS = [
   // ===== 特殊コンビネーション =====
   {
     id: 'bananaBlizzard',
+    image: 'images/morphs/bananaBlizzard.png',
     name: 'Banana Blizzard',
     japaneseName: 'バナナブリザード',
     description: 'ブリザード + マーフィーパターンレスの2つの劣性遺伝子。黄色みのあるパターンレス体色。Banana Blazing Blizzard（+アルビノ）のバリエーションも存在。',
@@ -567,6 +588,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'super_snow_albino',
+    image: 'images/morphs/super_snow_albino.png',
     name: 'Super Snow Albino',
     japaneseName: 'スーパースノーアルビノ',
     description: 'スーパースノーとアルビノの組み合わせ。鮮やかな色彩と高コントラスト。',
@@ -576,6 +598,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'ghostBlizzard',
+    image: 'images/morphs/ghostBlizzard.png',
     name: 'Ghost Blizzard',
     japaneseName: 'ゴーストブリザード',
     description: 'ゴースト + ブリザード。透明感のあるパターンレスの白い体色。',
@@ -584,6 +607,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'phantomRaptor',
+    image: 'images/morphs/phantomRaptor.png',
     name: 'Phantom RAPTOR',
     japaneseName: 'ファントムラプター',
     description: 'ゴースト + RAPTOR構成。低色素のRAPTOR表現。幻想的な見た目が人気。',
@@ -592,6 +616,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'shadowRaptor',
+    image: 'images/morphs/shadowRaptor.png',
     name: 'Shadow RAPTOR',
     japaneseName: 'シャドウラプター',
     description: 'NDBE + トレンパーアルビノ。ダークアイとアルビノの独特な組み合わせ。',
@@ -600,6 +625,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'cipherRaptor',
+    image: 'images/morphs/cipherRaptor.png',
     name: 'Cipher RAPTOR',
     japaneseName: 'サイファーラプター',
     description: 'Cipher + トレンパーアルビノ + エクリプスの組み合わせ。Cipherのソリッドアイとアルビノの色彩。',
@@ -608,6 +634,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'snow_blizzard',
+    image: 'images/morphs/snow_blizzard.png',
     name: 'Snow Blizzard',
     japaneseName: 'スノーブリザード',
     description: 'マックスノー + ブリザード。非常に白い体色のパターンレス個体。',
@@ -616,6 +643,7 @@ const COMBINATION_MORPHS = [
   },
   {
     id: 'snow_eclipse_blizzard',
+    image: 'images/morphs/snow_eclipse_blizzard.png',
     name: 'Snow Eclipse Blizzard',
     japaneseName: 'スノーエクリプスブリザード',
     description: 'マックスノー + エクリプス + ブリザード。白い体にソリッドブラックの目。',
