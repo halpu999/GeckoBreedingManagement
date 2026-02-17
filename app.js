@@ -479,12 +479,25 @@ function filterMorphGuide() {
   renderMorphGuide();
 }
 
+function handleSearch(query) {
+  state.searchQuery = query.toLowerCase().trim();
+  renderMorphGuide();
+}
+
 function setGuideFilter(filter) {
   state.guideFilter = filter;
   document.querySelectorAll('.filter-pills .pill').forEach(p => {
     p.classList.toggle('active', p.dataset.filter === filter);
   });
   renderMorphGuide();
+}
+
+function expandAllMorphs() {
+  document.querySelectorAll('.guide-card').forEach(c => c.classList.add('expanded'));
+}
+
+function collapseAllMorphs() {
+  document.querySelectorAll('.guide-card').forEach(c => c.classList.remove('expanded'));
 }
 
 // ====== 逆計算機能 ======

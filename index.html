@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="レオパードゲッコー（レオパ）のモルフ遺伝計算機。親個体のモルフ情報から子個体の出現確率を正確に計算。iOS・Android対応。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -14,10 +17,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.7.0">
+  <link rel="stylesheet" href="styles.css?v=4.1.0">
 </head>
 
 <body>
+
   <div id="app">
     <!-- ヘッダー -->
     <header class="app-header">
@@ -140,7 +144,7 @@
       <div class="guide-container">
         <div class="search-bar">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="モルフを検索..." id="morph-search" oninput="filterMorphGuide()">
+          <input type="text" placeholder="モルフを検索..." id="morph-search" oninput="handleSearch(this.value)">
         </div>
         <div class="filter-pills">
           <button class="pill active" data-filter="all" onclick="setGuideFilter('all')">すべて</button>
@@ -148,6 +152,12 @@
           <button class="pill" data-filter="dominant" onclick="setGuideFilter('dominant')">優性</button>
           <button class="pill" data-filter="codominant" onclick="setGuideFilter('codominant')">共優性</button>
           <button class="pill" data-filter="polygenic" onclick="setGuideFilter('polygenic')">ポリジェニック</button>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 12px; padding: 0 4px;">
+          <button class="pill" style="font-size: 0.7rem; padding: 4px 10px; background: rgba(255,255,255,0.05);"
+            onclick="expandAllMorphs()">すべて開く</button>
+          <button class="pill" style="font-size: 0.7rem; padding: 4px 10px; background: rgba(255,255,255,0.05);"
+            onclick="collapseAllMorphs()">すべて閉じる</button>
         </div>
         <div class="morph-list" id="morph-list">
         </div>
@@ -269,12 +279,9 @@
 
     <!-- フッター -->
     <footer class="app-footer">
-      <p>GeckoBreedingManagement v3.7.0</p>
+      <p>GeckoBreedingManagement v4.1.0</p>
       <p class="footer-date">2026.02.17 更新</p>
-      <button id="manual-update-btn" onclick="checkForUpdates()"
-        style="margin-top: 8px; padding: 6px 12px; font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: var(--text-secondary); cursor: pointer;">
-        🔄 更新を確認
-      </button>
+
       <div style="margin-top: 10px;">
         <button onclick="forceAppReload()"
           style="padding: 4px 8px; font-size: 0.7rem; background: rgba(255,80,80,0.15); border: 1px solid rgba(255,80,80,0.3); border-radius: 4px; color: #ff9999; cursor: pointer;">
@@ -293,134 +300,42 @@
   <script src="src/data/events.js"></script>
   <script src="src/data/knowledge.js"></script>
   <script src="src/engine/genetics.js"></script>
-  <script src="app.js?v=3.7.0"></script>
+  <script src="app.js?v=4.1.0"></script>
   <script>
-    // Service Worker 登録と更新ロジック
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        // updateViaCache: 'none' でブラウザキャッシュをバイパスしてsw.jsの更新を確認
-        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(reg => {
-          console.log('[SW] 登録成功:', reg.scope);
+    // Service Worker と キャッシュの強制削除 (トラブルシューティング)
+    window.addEventListener('load', async () => {
+      console.log('Starting cleanup...');
 
-          // 定期的に更新チェック（念のため）
-          setInterval(() => {
-            reg.update();
-          }, 60 * 60 * 1000); // 1時間ごと
-
-          // 更新が見つかった場合
-          reg.onupdatefound = () => {
-            const installingWorker = reg.installing;
-            installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed') {
-                if (navigator.serviceWorker.controller) {
-                  // 新しいバージョンがインストールされ、待機状態になった
-                  showUpdateToast();
-                } else {
-                  // 初回インストール完了
-                  console.log('[SW] コンテンツがキャッシュされました（初回）');
-                }
-              }
-            };
-          };
-
-          // 既に待機中のワーカーがある場合
-          if (reg.waiting) {
-            showUpdateToast();
-          }
-        }).catch(err => console.error('[SW] 登録失敗:', err));
-
-        // コントローラー変更時のリロード処理
-        let refreshing;
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-          if (refreshing) return;
-          window.location.reload();
-          refreshing = true;
-        });
-      });
-    }
-
-    function showUpdateToast() {
-      const toast = document.getElementById('update-toast');
-      if (toast) toast.classList.add('show');
-    }
-
-    function updateApp() {
-      navigator.serviceWorker.getRegistration().then(reg => {
-        if (reg && reg.waiting) {
-          // 待機中のワーカーがいればskipWaitingを送信し、controllerchangeイベントでリロードさせる
-          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-          // ボタンを「更新中...」に変更
-          const btn = document.querySelector('.update-toast-btn');
-          if (btn) {
-            btn.innerHTML = '更新中...';
-            btn.disabled = true;
-          }
-        } else {
-          // 待機中のワーカーがいなければ通常のリロード
-          window.location.reload();
-        }
-      });
-    }
-
-    function checkForUpdates() {
+      // 1. Service Worker の解除
       if ('serviceWorker' in navigator) {
-        // ボタンの見た目を変えて処理中を示す
-        const btn = document.getElementById('manual-update-btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '⏳ 確認中...';
-        btn.disabled = true;
-
-        navigator.serviceWorker.getRegistration().then(reg => {
-          if (reg) {
-            reg.update().then(() => {
-              setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-
-                if (reg.waiting) {
-                  showUpdateToast();
-                  alert('新しいバージョンが見つかりました。\n右下の「更新」ボタンを押してください。');
-                } else if (reg.installing) {
-                  alert('新しいバージョンをダウンロード中です。\n完了後に通知が表示されます。');
-                } else {
-                  alert('現在は最新バージョンです (v3.7.0)');
-                }
-              }, 1000); // UIフィードバック用に少し待つ
-            });
-          } else {
-            alert('Service Workerが見つかりません。ページをリロードしてください。');
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }
-        });
-      } else {
-        alert('お使いのブラウザはService Workerに対応していません。');
-      }
-    }
-
-    async function forceAppReload() {
-      if (!confirm('キャッシュを完全に削除して再読み込みします。\n「最新をダウンロード中」から進まない場合などに実行してください。\n\n実行しますか？')) return;
-
-      try {
-        // Service Workerの解除
-        if ('serviceWorker' in navigator) {
+        try {
           const registrations = await navigator.serviceWorker.getRegistrations();
           for (const registration of registrations) {
             await registration.unregister();
+            console.log('Service Worker Unregistered:', registration.scope);
           }
+        } catch (e) {
+          console.error('SW Unregister failed:', e);
         }
-        // キャッシュストレージの全削除
-        if ('caches' in window) {
+      }
+
+      // 2. Cache Storage の全削除
+      if ('caches' in window) {
+        try {
           const keys = await caches.keys();
           await Promise.all(keys.map(key => caches.delete(key)));
+          console.log('All Caches Deleted');
+        } catch (e) {
+          console.error('Cache delete failed:', e);
         }
-        alert('キャッシュを削除しました。ページをリロードします。');
-        window.location.reload(true);
-      } catch (error) {
-        console.error('Force reload error:', error);
-        alert('エラーが発生しました: ' + error.message);
-        window.location.reload();
       }
+
+      console.log('Cleanup finished. Current Version: v4.1.0');
+    });
+
+    async function forceAppReload() {
+      if (!confirm('ページを再読み込みしますか？')) return;
+      window.location.reload(true);
     }
   </script>
 </body>
