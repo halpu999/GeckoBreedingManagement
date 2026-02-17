@@ -403,6 +403,7 @@ function renderMorphGuide() {
         healthWarning: null,
         ethicalConcern: null,
         color: trait.color || '#A569BD',
+        image: trait.image,
         isPolygenic: true,
       });
     }
@@ -421,6 +422,7 @@ function renderMorphGuide() {
           healthWarning: null,
           ethicalConcern: null,
           color: proj.color || '#A569BD',
+          image: proj.image,
           isPolygenic: true,
         });
       }
