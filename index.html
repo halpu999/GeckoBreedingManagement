@@ -14,7 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.2.0">
+  <link rel="stylesheet" href="styles.css?v=3.4.0">
 </head>
 
 <body>
@@ -269,12 +269,18 @@
 
     <!-- フッター -->
     <footer class="app-footer">
-      <p>GeckoBreedingManagement v3.2.0</p>
+      <p>GeckoBreedingManagement v3.4.0</p>
       <p class="footer-date">2026.02.17 更新</p>
       <button id="manual-update-btn" onclick="checkForUpdates()"
         style="margin-top: 8px; padding: 6px 12px; font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: var(--text-secondary); cursor: pointer;">
         🔄 更新を確認
       </button>
+      <div style="margin-top: 10px;">
+        <button onclick="forceAppReload()"
+          style="padding: 4px 8px; font-size: 0.7rem; background: rgba(255,80,80,0.15); border: 1px solid rgba(255,80,80,0.3); border-radius: 4px; color: #ff9999; cursor: pointer;">
+          ⚠️ 強制再読み込み (トラブル時用)
+        </button>
+      </div>
     </footer>
   </div>
 
@@ -287,7 +293,7 @@
   <script src="src/data/events.js"></script>
   <script src="src/data/knowledge.js"></script>
   <script src="src/engine/genetics.js"></script>
-  <script src="app.js?v=3.2.0"></script>
+  <script src="app.js?v=3.4.0"></script>
   <script>
     // Service Worker 登録と更新ロジック
     if ('serviceWorker' in navigator) {
@@ -377,7 +383,7 @@
                 } else if (reg.installing) {
                   alert('新しいバージョンをダウンロード中です。\n完了後に通知が表示されます。');
                 } else {
-                  alert('現在は最新バージョンです (v3.2.0)');
+                  alert('現在は最新バージョンです (v3.4.0)');
                 }
               }, 1000); // UIフィードバック用に少し待つ
             });
@@ -389,6 +395,31 @@
         });
       } else {
         alert('お使いのブラウザはService Workerに対応していません。');
+      }
+    }
+
+    async function forceAppReload() {
+      if (!confirm('キャッシュを完全に削除して再読み込みします。\n「最新をダウンロード中」から進まない場合などに実行してください。\n\n実行しますか？')) return;
+
+      try {
+        // Service Workerの解除
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          for (const registration of registrations) {
+            await registration.unregister();
+          }
+        }
+        // キャッシュストレージの全削除
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map(key => caches.delete(key)));
+        }
+        alert('キャッシュを削除しました。ページをリロードします。');
+        window.location.reload(true);
+      } catch (error) {
+        console.error('Force reload error:', error);
+        alert('エラーが発生しました: ' + error.message);
+        window.location.reload();
       }
     }
   </script>
