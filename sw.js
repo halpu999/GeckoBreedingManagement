@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gecko-bm-v3.2.0';
+const CACHE_NAME = 'gecko-bm-v3.3.0';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -18,7 +18,7 @@ const ASSETS_TO_CACHE = [
     './images/morphs/blackPearl.png',
     './images/morphs/blizzard.png',
     './images/morphs/boldStripe.png',
-    './images/morphs/carrotTail.png',
+    './images/morphs/carrotTail_v2.png',
     './images/morphs/charcoal.png',
     './images/morphs/cipher.png',
     './images/morphs/clown.png',

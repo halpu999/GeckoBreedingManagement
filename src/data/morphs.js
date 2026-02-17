@@ -285,7 +285,7 @@ const POLYGENIC_TRAITS = [
   { id: 'inferno', name: 'Inferno', japaneseName: 'インフェルノ', description: 'Luxurious Leopardsが作出。Torrid, Tornado, Electric Tangerineを掛け合わせた極彩色タンジェリン血統。炎のような鮮やかなオレンジ〜赤色が特徴。', color: '#FF4500', image: 'images/morphs/inferno.png' },
   { id: 'hypo', name: 'Hypo (Hypomelanistic)', japaneseName: 'ハイポ', description: '黒い斑点の減少。体に10個以下の黒斑点で定義される。', image: 'images/morphs/hypo.png' },
   { id: 'superHypo', name: 'Super Hypo', japaneseName: 'スーパーハイポ', description: '体に黒い斑点がまったくない。タンジェリンと組み合わせてSunglowを作る際に使用。', image: 'images/morphs/superHypo.png' },
-  { id: 'carrotTail', name: 'Carrot Tail', japaneseName: 'キャロットテイル', description: '尾の面積の15%以上がオレンジ色。タンジェリン系と相性が良い。', image: 'images/morphs/carrotTail.png' },
+  { id: 'carrotTail', name: 'Carrot Tail', japaneseName: 'キャロットテイル', description: '尾の面積の15%以上がオレンジ色。タンジェリン系と相性が良い。', image: 'images/morphs/carrotTail_v2.png' },
   { id: 'carrotHead', name: 'Carrot Head', japaneseName: 'キャロットヘッド', description: '頭部にオレンジ色のパターンが現れる。', image: null },
   { id: 'jungle', name: 'Jungle', japaneseName: 'ジャングル', description: '不規則で崩れたバンドパターン。ワイルドタイプの均一なバンドとは異なる独特の模様。Jungle Giants系統が有名。', image: 'images/morphs/jungle.png' },
   { id: 'stripe', name: 'Stripe', japaneseName: 'ストライプ', description: '背中に沿ったストライプパターン。RAPTORのコンポーネントとして重要。', image: 'images/morphs/stripe.png' },
