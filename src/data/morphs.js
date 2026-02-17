@@ -114,7 +114,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#5C6B8A',
-    image: null,
+    image: 'images/morphs/cipher.png',
   },
   ndbe: {
     id: 'ndbe',
@@ -126,7 +126,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ メスの不妊率が高いとの報告あり。一部の個体で眼の形成異常が見られることがある。繁殖計画では注意が必要。',
     ethicalConcern: 'moderate',
     color: '#2C2C4A',
-    image: null,
+    image: 'images/morphs/ndbe.png',
   },
   ghost: {
     id: 'ghost',
@@ -138,7 +138,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#B0B8C8',
-    image: null,
+    image: 'images/morphs/ghost.png',
   },
   redStripe: {
     id: 'redStripe',
@@ -150,7 +150,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#C84040',
-    image: null,
+    image: 'images/morphs/redStripe.png',
   },
 
   // ========== 優性遺伝 (Dominant) ==========
@@ -188,7 +188,7 @@ const MORPH_DATABASE = {
     healthWarning: '⚠️ 【繁殖非推奨】SPINT1遺伝子変異による皮膚腫瘍（虹色素胞腫/iridophoroma）の極めて高いリスク。約80%が5歳までに腫瘍を発症し、癌化する可能性あり。寿命が大幅に短縮。美しい体色と腫瘍リスクは同じ遺伝子変異に由来するため分離不可能。MorphMarketでも販売禁止。開発者自身がブリーディングプログラムを中止。',
     ethicalConcern: 'high',
     color: '#FFF44F',
-    image: null,
+    image: 'images/morphs/lemonFrost.png',
   },
 
   // ========== 共優性 / 不完全優性 (Co-dominant / Incomplete Dominant) ==========
@@ -218,7 +218,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#D0E0F0',
-    image: null,
+    image: 'images/morphs/tugSnow.png',
   },
   gemSnow: {
     id: 'gemSnow',
@@ -232,7 +232,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#E0E8F0',
-    image: null,
+    image: 'images/morphs/gemSnow.png',
   },
   giant: {
     id: 'giant',
@@ -260,7 +260,7 @@ const MORPH_DATABASE = {
     healthWarning: null,
     ethicalConcern: null,
     color: '#D8E4F0',
-    image: null,
+    image: 'images/morphs/gMackSnow.png',
   },
   darkKnight: {
     id: 'darkKnight',
@@ -280,30 +280,30 @@ const MORPH_DATABASE = {
 
 // ========== ポリジェニック形質（参考情報） ==========
 const POLYGENIC_TRAITS = [
-  { id: 'tangerine', name: 'Tangerine', japaneseName: 'タンジェリン', description: '鮮やかなオレンジの体色。Blood, Mandarin, Electric, Inferno, Torrid, Tornado等の多数の血統がある。各血統のブリーダーにより長年の選別交配で強化。', color: '#FF6B35' },
-  { id: 'mandarin', name: 'Mandarin', japaneseName: 'マンダリン', description: 'タンジェリン系の中で特に深い色彩と大型の体格を持つハイエンドライン。NDBE遺伝子との関連が知られている。Inferno系との組み合わせ（Mandarin Inferno）が人気。', color: '#FF8C00' },
-  { id: 'inferno', name: 'Inferno', japaneseName: 'インフェルノ', description: 'Luxurious Leopardsが作出。Torrid, Tornado, Electric Tangerineを掛け合わせた極彩色タンジェリン血統。炎のような鮮やかなオレンジ〜赤色が特徴。', color: '#FF4500' },
-  { id: 'hypo', name: 'Hypo (Hypomelanistic)', japaneseName: 'ハイポ', description: '黒い斑点の減少。体に10個以下の黒斑点で定義される。' },
-  { id: 'superHypo', name: 'Super Hypo', japaneseName: 'スーパーハイポ', description: '体に黒い斑点がまったくない。タンジェリンと組み合わせてSunglowを作る際に使用。' },
-  { id: 'carrotTail', name: 'Carrot Tail', japaneseName: 'キャロットテイル', description: '尾の面積の15%以上がオレンジ色。タンジェリン系と相性が良い。' },
-  { id: 'carrotHead', name: 'Carrot Head', japaneseName: 'キャロットヘッド', description: '頭部にオレンジ色のパターンが現れる。' },
-  { id: 'jungle', name: 'Jungle', japaneseName: 'ジャングル', description: '不規則で崩れたバンドパターン。ワイルドタイプの均一なバンドとは異なる独特の模様。Jungle Giants系統が有名。' },
-  { id: 'stripe', name: 'Stripe', japaneseName: 'ストライプ', description: '背中に沿ったストライプパターン。RAPTORのコンポーネントとして重要。' },
-  { id: 'reverseStripe', name: 'Reverse Stripe', japaneseName: 'リバースストライプ', description: '頭から尾まで走る暗い中央ストライプ。両サイドに明るいストライプ。Cipherの幼体パターンでもある。' },
-  { id: 'boldStripe', name: 'Bold Stripe', japaneseName: 'ボールドストライプ', description: '背中に太く明瞭なストライプパターン。Clownモルフの構成要素の一つ。' },
-  { id: 'aberrant', name: 'Aberrant', japaneseName: 'アベラント', description: '不規則な体のパターンや不完全なバンド。バンドが崩れ始めた中間段階で、Jungleとの境界が曖昧。' },
-  { id: 'baldy', name: 'Baldy', japaneseName: 'ボールディ', description: '頭部に斑点やパターンがない状態。スーパーハイポと併せて出現することが多い。' },
-  { id: 'highYellow', name: 'High Yellow', japaneseName: 'ハイイエロー', description: '野生個体からの選別交配で作られた基本モルフ。鮮やかな黄色の体に黒い斑点。初心者に最も人気で安価。' },
-  { id: 'emerine', name: 'Emerine', japaneseName: 'エメリン', description: '緑がかった色合い。G Projectの要素として使用。Clownモルフの緑色成分に貢献。', color: '#2E8B57' },
-  { id: 'melanistic', name: 'Melanistic', japaneseName: 'メラニスティック', description: '暗色色素（メラニン）の増加。全体的に暗い体色。Black Night, Black Pearl, Charcoal系の基礎。' },
-  { id: 'blackNight', name: 'Black Night', japaneseName: 'ブラックナイト', description: 'ほぼ全身が漆黒のハイパーメラニスティック。数世代にわたる選別交配で作出。非常に高価（初期は数十万円〜）。「パンダ・プロジェクト」（Super Snow Eclipse × Black Night）が2024-25年にトレンド。', color: '#1A1A2E' },
-  { id: 'blackPearl', name: 'Black Pearl', japaneseName: 'ブラックパール', description: '2006年頃にオランダの動物園の野生個体から発見。Living Art Geckos, Asko Kampinga等の欧州ブリーダーが開発。完全メラニスティックを目指すプロジェクト。初期価格は$3,000/匹。スノー系統と初期の近親交配による弱体化の懸念あり。Akoyaプロジェクト（Black Night × Black Pearl × Charcoal）にも使用。', color: '#2D2D44' },
-  { id: 'charcoal', name: 'Charcoal', japaneseName: 'チャコール', description: 'ダーク系ポリジェニック。Black NightやBlack Pearlほどの黒さではないが、全体的に暗い体色。Akoyaプロジェクトの構成要素。', color: '#36454F' },
-  { id: 'lavender', name: 'Lavender', japaneseName: 'ラベンダー', description: '紫がかった灰色〜ラベンダー色の体色。幼体時に特に顕著で、成長とともに色が濃くなることがある。', color: '#9B8EC4' },
-  { id: 'whiteFace', name: 'White Face', japaneseName: 'ホワイトフェイス', description: '顔面が白くなるポリジェニック形質。スノー系と組み合わせると効果的。近年急速に人気上昇中。', color: '#F0F0FF' },
-  { id: 'paradox', name: 'Paradox', japaneseName: 'パラドックス', description: '遺伝的に予測不能なランダムな色素斑が現れる現象。体細胞突然変異の結果と考えられ、遺伝性は低い。Galaxy（Super Snow Eclipse + Paradox）のキー要素。', color: '#6B4FAB' },
-  { id: 'clown', name: 'Clown', japaneseName: 'クラウン', description: '2012年にMatt Baronak（SaSobek Reptiles）がG Projectから作出。黒い斑点とオレンジのパターン、緑がかった色彩が特徴。Electric Tangerine, Bold Stripe, Emerine遺伝子を組み合わせたライン。アルビノ版は作られない（コントラストが失われるため）。', color: '#FF6347' },
-  { id: 'fireProject', name: 'Fire', japaneseName: 'ファイア', description: 'Geeky Gecko Creationsが開発した高彩度タンジェリンライン。燃え上がるような赤〜オレンジの発色が特徴。2024-25年の新ライン。', color: '#FF2400' },
+  { id: 'tangerine', name: 'Tangerine', japaneseName: 'タンジェリン', description: '鮮やかなオレンジの体色。Blood, Mandarin, Electric, Inferno, Torrid, Tornado等の多数の血統がある。各血統のブリーダーにより長年の選別交配で強化。', color: '#FF6B35', image: 'images/morphs/tangerine.png' },
+  { id: 'mandarin', name: 'Mandarin', japaneseName: 'マンダリン', description: 'タンジェリン系の中で特に深い色彩と大型の体格を持つハイエンドライン。NDBE遺伝子との関連が知られている。Inferno系との組み合わせ（Mandarin Inferno）が人気。', color: '#FF8C00', image: 'images/morphs/mandarin.png' },
+  { id: 'inferno', name: 'Inferno', japaneseName: 'インフェルノ', description: 'Luxurious Leopardsが作出。Torrid, Tornado, Electric Tangerineを掛け合わせた極彩色タンジェリン血統。炎のような鮮やかなオレンジ〜赤色が特徴。', color: '#FF4500', image: 'images/morphs/inferno.png' },
+  { id: 'hypo', name: 'Hypo (Hypomelanistic)', japaneseName: 'ハイポ', description: '黒い斑点の減少。体に10個以下の黒斑点で定義される。', image: 'images/morphs/hypo.png' },
+  { id: 'superHypo', name: 'Super Hypo', japaneseName: 'スーパーハイポ', description: '体に黒い斑点がまったくない。タンジェリンと組み合わせてSunglowを作る際に使用。', image: 'images/morphs/superHypo.png' },
+  { id: 'carrotTail', name: 'Carrot Tail', japaneseName: 'キャロットテイル', description: '尾の面積の15%以上がオレンジ色。タンジェリン系と相性が良い。', image: 'images/morphs/carrotTail.png' },
+  { id: 'carrotHead', name: 'Carrot Head', japaneseName: 'キャロットヘッド', description: '頭部にオレンジ色のパターンが現れる。', image: null },
+  { id: 'jungle', name: 'Jungle', japaneseName: 'ジャングル', description: '不規則で崩れたバンドパターン。ワイルドタイプの均一なバンドとは異なる独特の模様。Jungle Giants系統が有名。', image: 'images/morphs/jungle.png' },
+  { id: 'stripe', name: 'Stripe', japaneseName: 'ストライプ', description: '背中に沿ったストライプパターン。RAPTORのコンポーネントとして重要。', image: 'images/morphs/stripe.png' },
+  { id: 'reverseStripe', name: 'Reverse Stripe', japaneseName: 'リバースストライプ', description: '頭から尾まで走る暗い中央ストライプ。両サイドに明るいストライプ。Cipherの幼体パターンでもある。', image: 'images/morphs/reverseStripe.png' },
+  { id: 'boldStripe', name: 'Bold Stripe', japaneseName: 'ボールドストライプ', description: '背中に太く明瞭なストライプパターン。Clownモルフの構成要素の一つ。', image: 'images/morphs/boldStripe.png' },
+  { id: 'aberrant', name: 'Aberrant', japaneseName: 'アベラント', description: '不規則な体のパターンや不完全なバンド。バンドが崩れ始めた中間段階で、Jungleとの境界が曖昧。', image: 'images/morphs/aberrant.png' },
+  { id: 'baldy', name: 'Baldy', japaneseName: 'ボールディ', description: '頭部に斑点やパターンがない状態。スーパーハイポと併せて出現することが多い。', image: null },
+  { id: 'highYellow', name: 'High Yellow', japaneseName: 'ハイイエロー', description: '野生個体からの選別交配で作られた基本モルフ。鮮やかな黄色の体に黒い斑点。初心者に最も人気で安価。', image: 'images/morphs/highYellow.png' },
+  { id: 'emerine', name: 'Emerine', japaneseName: 'エメリン', description: '緑がかった色合い。G Projectの要素として使用。Clownモルフの緑色成分に貢献。', color: '#2E8B57', image: 'images/morphs/emerine.png' },
+  { id: 'melanistic', name: 'Melanistic', japaneseName: 'メラニスティック', description: '暗色色素（メラニン）の増加。全体的に暗い体色。Black Night, Black Pearl, Charcoal系の基礎。', image: 'images/morphs/melanistic.png' },
+  { id: 'blackNight', name: 'Black Night', japaneseName: 'ブラックナイト', description: 'ほぼ全身が漆黒のハイパーメラニスティック。数世代にわたる選別交配で作出。非常に高価（初期は数十万円〜）。「パンダ・プロジェクト」（Super Snow Eclipse × Black Night）が2024-25年にトレンド。', color: '#1A1A2E', image: 'images/morphs/blackNight.png' },
+  { id: 'blackPearl', name: 'Black Pearl', japaneseName: 'ブラックパール', description: '2006年頃にオランダの動物園の野生個体から発見。Living Art Geckos, Asko Kampinga等の欧州ブリーダーが開発。完全メラニスティックを目指すプロジェクト。初期価格は$3,000/匹。スノー系統と初期の近親交配による弱体化の懸念あり。Akoyaプロジェクト（Black Night × Black Pearl × Charcoal）にも使用。', color: '#2D2D44', image: 'images/morphs/blackPearl.png' },
+  { id: 'charcoal', name: 'Charcoal', japaneseName: 'チャコール', description: 'ダーク系ポリジェニック。Black NightやBlack Pearlほどの黒さではないが、全体的に暗い体色。Akoyaプロジェクトの構成要素。', color: '#36454F', image: 'images/morphs/charcoal.png' },
+  { id: 'lavender', name: 'Lavender', japaneseName: 'ラベンダー', description: '紫がかった灰色〜ラベンダー色の体色。幼体時に特に顕著で、成長とともに色が濃くなることがある。', color: '#9B8EC4', image: 'images/morphs/lavender.png' },
+  { id: 'whiteFace', name: 'White Face', japaneseName: 'ホワイトフェイス', description: '顔面が白くなるポリジェニック形質。スノー系と組み合わせると効果的。近年急速に人気上昇中。', color: '#F0F0FF', image: 'images/morphs/whiteFace.png' },
+  { id: 'paradox', name: 'Paradox', japaneseName: 'パラドックス', description: '遺伝的に予測不能なランダムな色素斑が現れる現象。体細胞突然変異の結果と考えられ、遺伝性は低い。Galaxy（Super Snow Eclipse + Paradox）のキー要素。', color: '#6B4FAB', image: 'images/morphs/paradox.png' },
+  { id: 'clown', name: 'Clown', japaneseName: 'クラウン', description: '2012年にMatt Baronak（SaSobek Reptiles）がG Projectから作出。黒い斑点とオレンジのパターン、緑がかった色彩が特徴。Electric Tangerine, Bold Stripe, Emerine遺伝子を組み合わせたライン。アルビノ版は作られない（コントラストが失われるため）。', color: '#FF6347', image: 'images/morphs/clown.png' },
+  { id: 'fireProject', name: 'Fire', japaneseName: 'ファイア', description: 'Geeky Gecko Creationsが開発した高彩度タンジェリンライン。燃え上がるような赤〜オレンジの発色が特徴。2024-25年の新ライン。', color: '#FF2400', image: 'images/morphs/fire.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
@@ -316,6 +316,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Black Night + Mack Snow + Afghanicus系',
     status: '開発中（2023〜）',
     color: '#708090',
+    image: 'images/morphs/werewolf.png',
   },
   {
     id: 'blackOlive',
@@ -325,6 +326,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Emerine / Melanistic系ライン',
     status: '開発中',
     color: '#556B2F',
+    image: 'images/morphs/blackOlive.png',
   },
   {
     id: 'pandaProject',
@@ -334,6 +336,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Super Mack Snow + Eclipse + Black Night',
     status: '進行中',
     color: '#1C1C1C',
+    image: 'images/morphs/pandaProject.png',
   },
   {
     id: 'akoya',
@@ -343,6 +346,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Black Night + Black Pearl + Charcoal',
     status: '進行中',
     color: '#0D0D0D',
+    image: 'images/morphs/akoya.png',
   },
   {
     id: 'jokerProject',
@@ -352,6 +356,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Clown + Firebolt Black Night + Mandarin',
     status: '進行中',
     color: '#8B0000',
+    image: 'images/morphs/jokerProject.png',
   },
   {
     id: 'purpleHead',
@@ -361,6 +366,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Tangerine + Lavender系ライン',
     status: '高品質ライン確立済',
     color: '#9370DB',
+    image: 'images/morphs/purpleHead.png',
   },
   {
     id: 'midnightBlizzard',
@@ -370,6 +376,7 @@ const BREEDING_PROJECTS = [
     genetics: 'Blizzard + Snow + Afghanicus',
     status: '開発中',
     color: '#2C1654',
+    image: 'images/morphs/midnightBlizzard.png',
   },
 ];
 

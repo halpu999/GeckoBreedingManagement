@@ -14,7 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3.2.0">
 </head>
 
 <body>
@@ -269,24 +269,119 @@
 
     <!-- フッター -->
     <footer class="app-footer">
-      <p>GeckoBreedingManagement v3.0.0</p>
-      <p class="footer-date">2026.02.16 更新</p>
+      <p>GeckoBreedingManagement v3.2.0</p>
+      <p class="footer-date">2026.02.17 更新</p>
+      <button id="manual-update-btn" onclick="checkForUpdates()"
+        style="margin-top: 8px; padding: 6px 12px; font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: var(--text-secondary); cursor: pointer;">
+        🔄 更新を確認
+      </button>
     </footer>
+  </div>
+
+  <div id="update-toast">
+    <span class="update-toast-text">新しいバージョンが利用可能です</span>
+    <button class="update-toast-btn" onclick="updateApp()">更新</button>
   </div>
 
   <script src="src/data/morphs.js"></script>
   <script src="src/data/events.js"></script>
   <script src="src/data/knowledge.js"></script>
   <script src="src/engine/genetics.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=3.2.0"></script>
   <script>
-    // Service Worker 登録
+    // Service Worker 登録と更新ロジック
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then((reg) => console.log('[SW] 登録成功:', reg.scope))
-          .catch((err) => console.error('[SW] 登録失敗:', err));
+        // updateViaCache: 'none' でブラウザキャッシュをバイパスしてsw.jsの更新を確認
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(reg => {
+          console.log('[SW] 登録成功:', reg.scope);
+
+          // 定期的に更新チェック（念のため）
+          setInterval(() => {
+            reg.update();
+          }, 60 * 60 * 1000); // 1時間ごと
+
+          // 更新が見つかった場合
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing;
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed') {
+                if (navigator.serviceWorker.controller) {
+                  // 新しいバージョンがインストールされ、待機状態になった
+                  showUpdateToast();
+                } else {
+                  // 初回インストール完了
+                  console.log('[SW] コンテンツがキャッシュされました（初回）');
+                }
+              }
+            };
+          };
+
+          // 既に待機中のワーカーがある場合
+          if (reg.waiting) {
+            showUpdateToast();
+          }
+        }).catch(err => console.error('[SW] 登録失敗:', err));
+
+        // コントローラー変更時のリロード処理
+        let refreshing;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (refreshing) return;
+          window.location.reload();
+          refreshing = true;
+        });
       });
+    }
+
+    function showUpdateToast() {
+      const toast = document.getElementById('update-toast');
+      if (toast) toast.classList.add('show');
+    }
+
+    function updateApp() {
+      // 待機中のワーカーがいればskipWaitingを送信、なければリロード
+      navigator.serviceWorker.getRegistration().then(reg => {
+        if (reg && reg.waiting) {
+          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        window.location.reload();
+      });
+    }
+
+    function checkForUpdates() {
+      if ('serviceWorker' in navigator) {
+        // ボタンの見た目を変えて処理中を示す
+        const btn = document.getElementById('manual-update-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '⏳ 確認中...';
+        btn.disabled = true;
+
+        navigator.serviceWorker.getRegistration().then(reg => {
+          if (reg) {
+            reg.update().then(() => {
+              setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+
+                if (reg.waiting) {
+                  showUpdateToast();
+                  alert('新しいバージョンが見つかりました。\n右下の「更新」ボタンを押してください。');
+                } else if (reg.installing) {
+                  alert('新しいバージョンをダウンロード中です。\n完了後に通知が表示されます。');
+                } else {
+                  alert('現在は最新バージョンです (v3.2.0)');
+                }
+              }, 1000); // UIフィードバック用に少し待つ
+            });
+          } else {
+            alert('Service Workerが見つかりません。ページをリロードしてください。');
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }
+        });
+      } else {
+        alert('お使いのブラウザはService Workerに対応していません。');
+      }
     }
   </script>
 </body>

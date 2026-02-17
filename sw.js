@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gecko-bm-v3.1.0';
+const CACHE_NAME = 'gecko-bm-v3.2.0';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -10,18 +10,55 @@ const ASSETS_TO_CACHE = [
     './src/data/events.js',
     './src/data/knowledge.js',
     './src/engine/genetics.js',
-    './images/morphs/tremperAlbino.png',
+    './images/morphs/aberrant.png',
+    './images/morphs/akoya.png',
     './images/morphs/bellAlbino.png',
-    './images/morphs/rainwaterAlbino.png',
+    './images/morphs/blackNight.png',
+    './images/morphs/blackOlive.png',
+    './images/morphs/blackPearl.png',
     './images/morphs/blizzard.png',
-    './images/morphs/murphyPatternless.png',
-    './images/morphs/eclipse.png',
-    './images/morphs/mackSnow.png',
-    './images/morphs/enigma.png',
-    './images/morphs/whiteYellow.png',
-    './images/morphs/giant.png',
+    './images/morphs/boldStripe.png',
+    './images/morphs/carrotTail.png',
+    './images/morphs/charcoal.png',
+    './images/morphs/cipher.png',
+    './images/morphs/clown.png',
     './images/morphs/darkKnight.png',
-    './images/morphs/marbleEye.png'
+    './images/morphs/eclipse.png',
+    './images/morphs/emerine.png',
+    './images/morphs/enigma.png',
+    './images/morphs/fire.png',
+    './images/morphs/gMackSnow.png',
+    './images/morphs/gemSnow.png',
+    './images/morphs/ghost.png',
+    './images/morphs/giant.png',
+    './images/morphs/highYellow.png',
+    './images/morphs/hypo.png',
+    './images/morphs/inferno.png',
+    './images/morphs/jokerProject.png',
+    './images/morphs/jungle.png',
+    './images/morphs/lavender.png',
+    './images/morphs/lemonFrost.png',
+    './images/morphs/mackSnow.png',
+    './images/morphs/mandarin.png',
+    './images/morphs/marbleEye.png',
+    './images/morphs/melanistic.png',
+    './images/morphs/midnightBlizzard.png',
+    './images/morphs/murphyPatternless.png',
+    './images/morphs/ndbe.png',
+    './images/morphs/pandaProject.png',
+    './images/morphs/paradox.png',
+    './images/morphs/purpleHead.png',
+    './images/morphs/rainwaterAlbino.png',
+    './images/morphs/redStripe.png',
+    './images/morphs/reverseStripe.png',
+    './images/morphs/stripe.png',
+    './images/morphs/superHypo.png',
+    './images/morphs/tangerine.png',
+    './images/morphs/tremperAlbino.png',
+    './images/morphs/tugSnow.png',
+    './images/morphs/werewolf.png',
+    './images/morphs/whiteFace.png',
+    './images/morphs/whiteYellow.png'
 ];
 
 // インストール時にアセットをキャッシュ
@@ -76,4 +113,11 @@ self.addEventListener('fetch', (event) => {
                 return caches.match(event.request);
             })
     );
+});
+
+// skipWaitingの強制実行
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });

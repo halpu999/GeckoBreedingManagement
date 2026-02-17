@@ -1970,3 +1970,48 @@ body::before {
     padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
 }
+
+/* ---- 更新通知トースト ---- */
+#update-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-orange);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#update-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.update-toast-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.update-toast-btn {
+  background: var(--accent-orange);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: opacity 0.2s;
+}
+
+.update-toast-btn:hover {
+  opacity: 0.9;
+}
