@@ -14,7 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.4.0">
+  <link rel="stylesheet" href="styles.css?v=3.5.0">
 </head>
 
 <body>
@@ -269,7 +269,7 @@
 
     <!-- フッター -->
     <footer class="app-footer">
-      <p>GeckoBreedingManagement v3.4.0</p>
+      <p>GeckoBreedingManagement v3.5.0</p>
       <p class="footer-date">2026.02.17 更新</p>
       <button id="manual-update-btn" onclick="checkForUpdates()"
         style="margin-top: 8px; padding: 6px 12px; font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: var(--text-secondary); cursor: pointer;">
@@ -293,7 +293,7 @@
   <script src="src/data/events.js"></script>
   <script src="src/data/knowledge.js"></script>
   <script src="src/engine/genetics.js"></script>
-  <script src="app.js?v=3.4.0"></script>
+  <script src="app.js?v=3.5.0"></script>
   <script>
     // Service Worker 登録と更新ロジック
     if ('serviceWorker' in navigator) {
@@ -383,7 +383,7 @@
                 } else if (reg.installing) {
                   alert('新しいバージョンをダウンロード中です。\n完了後に通知が表示されます。');
                 } else {
-                  alert('現在は最新バージョンです (v3.4.0)');
+                  alert('現在は最新バージョンです (v3.5.0)');
                 }
               }, 1000); // UIフィードバック用に少し待つ
             });

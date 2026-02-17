@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gecko-bm-v3.4.0';
+const CACHE_NAME = 'gecko-bm-v3.5.0';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
