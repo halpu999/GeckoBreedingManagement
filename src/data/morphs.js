@@ -328,6 +328,11 @@ const POLYGENIC_TRAITS = [
   { id: 'firebold', name: 'Firebold', japaneseName: 'ファイアボールド', description: '黄橙色のボディに太い黒のバンディングが入り、成長とともに黒い部分が紫色に変化する特徴的なモルフ。Bold Stripe × Tangerineの選別交配から生まれた。', color: '#FF8C00', image: 'images/morphs/firebold.png' },
   { id: 'redDragon', name: 'Red Dragon', japaneseName: 'レッドドラゴン', description: '2024年に開発中のプロジェクト。標準的なタンジェリンよりもさらに濃い赤〜ダークレッドの体色を目指す。Blood, Vermillionとは異なる血統から独立して作出。', color: '#8B0000', image: 'images/morphs/redDragon.png' },
   { id: 'rainwaterSunglow', name: 'Rainwater Sunglow', japaneseName: 'レインウォーターサングロー', description: 'Rainwater Albino + Super Hypo Tangerine。レインウォーター特有のソフトで透明感のあるアルビノとサングローの組み合わせ。Tremper版Sunglowとは異なる淡い色調が魅力。', color: '#FFB347', image: 'images/morphs/rainwaterSunglow.png' },
+  { id: 'halloweenMask', name: 'Halloween Mask', japaneseName: 'ハロウィンマスク', description: '頭部に複雑で不気味な模様（ジャック・オー・ランタンのようなマスク顔）が現れるよう選別交配されたライン。体にも太く黒いバンド模様が強く出る傾向がある。', color: '#B8860B', image: 'images/morphs/halloweenMask.png' },
+  { id: 'bandit', name: 'Bandit', japaneseName: 'バンディット', description: '鼻の上に太くはっきりとしたヒゲのような黒いバンド（山賊のマスク）が入るのが最大の特徴。Bold Stripeラインから派生して固定された。', color: '#F4A460', image: 'images/morphs/bandit.png' },
+  { id: 'sykesSunburst', name: 'Sykes Sunburst', japaneseName: 'サイクスサンバースト', description: 'Steve Sykes氏（Geckos Etc.）が作出した最高峰のタンジェリン血統。「太陽の爆発」の名の通り、蛍光色を帯びた極めて強烈なオレンジ色が全身を覆う。', color: '#FF6347', image: 'images/morphs/sykesSunburst.png' },
+  { id: 'godzilla', name: 'Godzilla Super Giant', japaneseName: 'ゴジラスーパージャイアント', description: 'Steve Sykes氏が確立したジャイアント血統の中で、最も巨大になることで知られる「ゴジラ（Godzilla）ライン」。特大の体格と重厚感は圧巻。', color: '#DAA520', image: 'images/morphs/godzilla.png' },
+  { id: 'afghanTangerine', name: 'Afghan Tangerine', japaneseName: 'アフガンタンジェリン', description: '原種アフガニクスの血統（Afghanicus）とタンジェリンの交配。野性味あふれる複雑な網目模様（マクラリウス表現）と、タンジェリンの赤みが融合した近年大人気のコンボ。', color: '#CD853F', image: 'images/morphs/afghanTangerine.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
@@ -882,6 +887,15 @@ const COMBINATION_MORPHS = [
     description: 'The Urban Geckoが作出した最高峰タンジェリン血統。深紅に近いオレンジで、他モルフとのコンボで赤みを強化する用途で絶大な人気。',
     components: [],
     polygenicComponents: ['inferno'],
+  },
+  {
+    id: 'bellSunglow',
+    image: 'images/morphs/bellSunglow.png',
+    name: 'Bell Sunglow',
+    japaneseName: 'ベルサングロー',
+    description: 'Bell Albino + Super Hypo Tangerine。ベルアルビノの真っ赤な目と、高発色のタンジェリンボディの組み合わせ。トレンパーサングローより濃い赤目になる。',
+    components: ['bellAlbino'],
+    polygenicComponents: ['superHypo', 'tangerine'],
   },
 ];
 
