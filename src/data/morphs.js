@@ -324,6 +324,10 @@ const POLYGENIC_TRAITS = [
   { id: 'vermillion', name: 'Vermillion', japaneseName: 'ヴァーミリオン', description: 'Jeff Galewood (JMG Reptiles) 作出。非常に濃い赤色を持つタンジェリンライン。「朱色」の名に恥じぬ発色。', color: '#E34234', image: 'images/morphs/vermillion.png' },
   { id: 'turcmenicus', name: 'Turcmenicus', japaneseName: 'トルクメニクス', description: 'Eublepharis turcmenicus。トルクメニスタントカゲモドキ。レオパに似るが四肢が細長く、背中の結節があまり目立たない。', color: '#BDB76B', image: 'images/morphs/turcmenicus.png' },
   { id: 'fuscus', name: 'Fuscus', japaneseName: 'フスクス', description: 'Eublepharis fuscus。ニシアインドトカゲモドキ。大型で、背中の正中線に沿って明瞭なストライプが走る。', color: '#8B5A2B', image: 'images/morphs/fuscus.png' },
+  { id: 'bumblebee', name: 'Bumblebee', japaneseName: 'バンブルビー', description: '2024年に命名された新しいモルフ。Hyper Xanthic Bold × Afghanicusの掛け合わせで、ミツバチのような鮮やかな黄色と黒のコントラストが特徴。頭部パターンも独特。', color: '#FFD700', image: 'images/morphs/bumblebee.png' },
+  { id: 'firebold', name: 'Firebold', japaneseName: 'ファイアボールド', description: '黄橙色のボディに太い黒のバンディングが入り、成長とともに黒い部分が紫色に変化する特徴的なモルフ。Bold Stripe × Tangerineの選別交配から生まれた。', color: '#FF8C00', image: 'images/morphs/firebold.png' },
+  { id: 'redDragon', name: 'Red Dragon', japaneseName: 'レッドドラゴン', description: '2024年に開発中のプロジェクト。標準的なタンジェリンよりもさらに濃い赤〜ダークレッドの体色を目指す。Blood, Vermillionとは異なる血統から独立して作出。', color: '#8B0000', image: 'images/morphs/redDragon.png' },
+  { id: 'rainwaterSunglow', name: 'Rainwater Sunglow', japaneseName: 'レインウォーターサングロー', description: 'Rainwater Albino + Super Hypo Tangerine。レインウォーター特有のソフトで透明感のあるアルビノとサングローの組み合わせ。Tremper版Sunglowとは異なる淡い色調が魅力。', color: '#FFB347', image: 'images/morphs/rainwaterSunglow.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
