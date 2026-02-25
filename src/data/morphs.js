@@ -332,6 +332,7 @@ const POLYGENIC_TRAITS = [
   { id: 'pastel', name: 'Pastel', japaneseName: 'パステル', description: '黄色やオレンジ、黒の色素が薄まり、全体的に淡いパステル調の色合いになるポリジェニック形質。', color: '#FFDAB9', image: 'images/morphs/pastel.png' },
   { id: 'patternlessStripe', name: 'Patternless Stripe', japaneseName: 'パターンレスストライプ', description: '背骨に沿って模様が消失した真っ直ぐな1本のストライプが走る表現。RAPTOR（Red-eye Albino Patternless Tremper ORange）の「P」の要素として重要。', color: '#FFE4B5', image: 'images/morphs/patternlessStripe.png' },
   { id: 'banded', name: 'Banded', japaneseName: 'バンデッド', description: 'ヒョウ柄（スポット模様）に崩れることなく、黄色と黒の均一な帯（バンド）模様がはっきりと維持された基本的な表現。ノーマルの一形態。', color: '#DAA520', image: 'images/morphs/banded.png' },
+  { id: 'boldJungle', name: 'Bold Jungle', japaneseName: 'ボールドジャングル', description: '太く濃い黒のストライプ（Bold）が不規則に乱れる（Jungle）大定番ながら強力な迫力を持つライン。', color: '#B8860B', image: 'images/morphs/boldJungle.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
@@ -912,6 +913,33 @@ const COMBINATION_MORPHS = [
     description: 'Tangerine + Enigma。エニグマ特有の模様の乱れやピグメントの散らばりに、タンジェリンの鮮やかなオレンジが乗る極上の定番コンボ。',
     components: ['enigma'],
     polygenicComponents: ['tangerine'],
+  },
+  {
+    id: 'melanisticSuperMackSnow',
+    image: 'images/morphs/melanisticSuperMackSnow.png',
+    name: 'Melanistic Super Mack Snow',
+    japaneseName: 'メラニスティックスーパーマックスノー',
+    description: '白黒のスーパーマックスノーに「黒化（Melanistic）」を加え、黒の密度を極限まで高めたダークスノー。',
+    components: ['superSnow'],
+    polygenicComponents: ['melanistic'],
+  },
+  {
+    id: 'melanisticGalaxy',
+    image: 'images/morphs/melanisticGalaxy.png',
+    name: 'Melanistic Galaxy',
+    japaneseName: 'メラニスティックギャラクシー',
+    description: 'スーパーマックスノーエクリプス（Galaxy）にMelanisticを追加。通常のギャラクシーより不気味なほどの深い黒と白抜け（パイド）のコントラストが際立つ。',
+    components: ['superSnow', 'eclipse'],
+    polygenicComponents: ['melanistic'],
+  },
+  {
+    id: 'wySuperRaptor',
+    image: 'images/morphs/wySuperRaptor.png',
+    name: 'W&Y Super RAPTOR',
+    japaneseName: 'W&Yスーパーラプター',
+    description: 'Super Snow + RAPTOR + W&Y。多重コンボにより通常のラプターよりもさらに白くヌケ感のある美しさが特徴。',
+    components: ['superSnow', 'tremperAlbino', 'eclipse', 'wy'],
+    polygenicComponents: ['patternlessStripe'],
   },
   {
 
