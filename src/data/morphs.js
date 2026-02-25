@@ -248,20 +248,6 @@ const MORPH_DATABASE = {
     color: '#90B090',
     image: 'images/morphs/giant.png',
   },
-  gMackSnow: {
-    id: 'gMackSnow',
-    name: 'Goniurosaurus Mack Snow',
-    japaneseName: 'Gマックスノー',
-    type: 'codominant',
-    superForm: 'Super G Mack Snow',
-    superFormJapanese: 'スーパーGマックスノー',
-    albinoGroup: null,
-    description: 'マックスノーとは独立した新しい共優性スノー系統。よりクールトーンの白さが特徴。',
-    healthWarning: null,
-    ethicalConcern: null,
-    color: '#D8E4F0',
-    image: 'images/morphs/gMackSnow.png',
-  },
   darkKnight: {
     id: 'darkKnight',
     name: 'Dark Knight',
@@ -336,6 +322,16 @@ const POLYGENIC_TRAITS = [
   { id: 'afghanTangerine', name: 'Afghan Tangerine', japaneseName: 'アフガンタンジェリン', description: '原種アフガニクスの血統（Afghanicus）とタンジェリンの交配。野性味あふれる複雑な網目模様（マクラリウス表現）と、タンジェリンの赤みが融合した近年大人気のコンボ。', color: '#CD853F', image: 'images/morphs/afghanTangerine.png' },
   { id: 'nievesTangerine', name: 'Nieves Tangerine', japaneseName: 'ニエベスタンジェリン', description: 'David Nieves氏が1990年代に確立した歴史ある純血タンジェリンライン。鮮やかなオレンジに繊細なピンクの斑点が特徴。純血個体は現在極めて希少。', color: '#FF7F50', image: 'images/morphs/nievesTangerine.png' },
   { id: 'redDevil', name: 'Red Devil', japaneseName: 'レッドデビル', description: '韓国のSFFF Geckosなどで知られる、ベルアルビノベースで極彩色のディープオレンジレッドを引き出した超希少・最高級ライン。「赤い悪魔」の名を冠する。', color: '#B22222', image: 'images/morphs/redDevil.png' },
+  // アノマリー・変り種系
+  { id: 'chimera', name: 'Chimera', japaneseName: 'キメラ', description: '二つの異なる卵（胚）が癒合して一つの個体として生まれる極めて稀な突然変異アノマリー。体の左右で別々のモルフ表現（例：半分ノーマル、半分アルビノ）を持つことが多く、遺伝はしない一点物現象。', color: '#A0522D', image: 'images/morphs/chimera.png' },
+  { id: 'piebald', name: 'Piebald / Pied', japaneseName: 'パイボールド（パイド）', description: '体の一部にランダムに色素が欠落した斑状の白いパッチ（色抜け）が現れるアノマリー。エクリプスやスーパーマックスノーのコンボ（Galaxyなど）で多く見られるが、部分的な白抜け自体を指す。', color: '#D3D3D3', image: 'images/morphs/piebald.png' },
+  { id: 'microscale', name: 'Microscale / Scaleless', japaneseName: 'マイクロスケール', description: '全身の鱗が極端に小さい、あるいは無いように見える異常変異。皮膚が滑らかでツヤツヤしており、シルクバックとも呼ばれる。脱皮不全等のリスクがあり、倫理的な議論がある。', color: '#E9967A', image: 'images/morphs/microscale.png' },
+  { id: 'snakeEyes', name: 'Snake Eyes', japaneseName: 'スネークアイ', description: 'エクリプス遺伝子の一形態で、眼球の全体ではなく半分（前半分など）だけが黒く染まる変異。独特の鋭い眼差しになる。', color: '#4682B4', image: 'images/morphs/snakeEyes.png' },
+  { id: 'abyssinian', name: 'Abyssinian', japaneseName: 'アビシニアン', description: 'エクリプス系統から派生する特殊な目の表現。黒や赤のベタ塗りにならず、網目模様のように赤い血管が走る。エクリプスの「ハズレ（色が出なかった表現）」とされることもあるが固有の魅力がある。', color: '#CD5C5C', image: 'images/morphs/abyssinian.png' },
+  { id: 'diorite', name: 'Diorite', japaneseName: 'ジオライト', description: 'マックスノー系統の中で選別交配されたライン。花崗岩（閃緑岩）のように、ごく細かい黒い斑点が全身にびっしりと現れるのが特徴。', color: '#696969', image: 'images/morphs/diorite.png' },
+  { id: 'pastel', name: 'Pastel', japaneseName: 'パステル', description: '黄色やオレンジ、黒の色素が薄まり、全体的に淡いパステル調の色合いになるポリジェニック形質。', color: '#FFDAB9', image: 'images/morphs/pastel.png' },
+  { id: 'patternlessStripe', name: 'Patternless Stripe', japaneseName: 'パターンレスストライプ', description: '背骨に沿って模様が消失した真っ直ぐな1本のストライプが走る表現。RAPTOR（Red-eye Albino Patternless Tremper ORange）の「P」の要素として重要。', color: '#FFE4B5', image: 'images/morphs/patternlessStripe.png' },
+  { id: 'banded', name: 'Banded', japaneseName: 'バンデッド', description: 'ヒョウ柄（スポット模様）に崩れることなく、黄色と黒の均一な帯（バンド）模様がはっきりと維持された基本的な表現。ノーマルの一形態。', color: '#DAA520', image: 'images/morphs/banded.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
@@ -835,6 +831,33 @@ const COMBINATION_MORPHS = [
     japaneseName: 'SHTCTB',
     description: 'Super Hypo Tangerine Carrot Tail Baldy。SHTCTに頭部の模様消失（Baldy）が加わった完全なハイポタンジェリン。',
     polygenicComponents: ['superHypo', 'tangerine', 'carrotTail', 'baldy'],
+  },
+  {
+    id: 'hybino',
+    image: 'images/morphs/hybino.png',
+    name: 'Hybino',
+    japaneseName: 'ハイビノ',
+    description: 'Hypo/Super Hypo + Albino系の組み合わせ。斑点がなくアルビノの明るさを持つ。サングロー（Sunglow）のタンジェリンが入っていない、基本の形。',
+    components: ['tremperAlbino'], // どのアルビノでも良いが代表として
+    polygenicComponents: ['superHypo'],
+  },
+  {
+    id: 'creamsicle',
+    image: 'images/morphs/creamsicle.png',
+    name: 'Creamsicle',
+    japaneseName: 'クリームシクル',
+    description: 'Super Hypo Tangerine (SHT) + Mack Snow。JMG Reptiles作出。雪のような白さとタンジェリンのオレンジが混ざり合い、アイスクリームスナックのような独特のパステル表現になる。',
+    components: ['mackSnow'],
+    polygenicComponents: ['superHypo', 'tangerine'],
+  },
+  {
+    id: 'sht',
+    image: 'images/morphs/sht.png',
+    name: 'SHT',
+    japaneseName: 'SHT',
+    description: 'Super Hypo Tangerine。体に斑点がなく、オレンジの発色が強いタンジェリン。キャロットテール（CT）を持たない個体を指す基礎的な優良ライン。',
+    components: [],
+    polygenicComponents: ['superHypo', 'tangerine'],
   },
   {
 
