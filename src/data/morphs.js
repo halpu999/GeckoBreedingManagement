@@ -280,6 +280,7 @@ const MORPH_DATABASE = {
 
 // ========== ポリジェニック形質（参考情報） ==========
 const POLYGENIC_TRAITS = [
+  { id: 'normal', name: 'Normal / Wild Type', japaneseName: 'ノーマル / ワイルド', description: '原種（ヒョウモントカゲモドキ）の本来の姿。黄色〜褐色の地色に黒いヒョウ柄（斑点）が入る。全てのモルフの基礎であり、野性味あふれる原生の魅力が再評価されている。', color: '#BDB76B', image: 'images/morphs/normal.png' },
   { id: 'tangerine', name: 'Tangerine', japaneseName: 'タンジェリン', description: '鮮やかなオレンジの体色。Blood, Mandarin, Electric, Inferno, Torrid, Tornado等の多数の血統がある。各血統のブリーダーにより長年の選別交配で強化。', color: '#FF6B35', image: 'images/morphs/tangerine.png' },
   { id: 'mandarin', name: 'Mandarin', japaneseName: 'マンダリン', description: 'タンジェリン系の中で特に深い色彩と大型の体格を持つハイエンドライン。NDBE遺伝子との関連が知られている。Inferno系との組み合わせ（Mandarin Inferno）が人気。', color: '#FF8C00', image: 'images/morphs/mandarin.png' },
   { id: 'inferno', name: 'Inferno', japaneseName: 'インフェルノ', description: 'Luxurious Leopardsが作出。Torrid, Tornado, Electric Tangerineを掛け合わせた極彩色タンジェリン血統。炎のような鮮やかなオレンジ〜赤色が特徴。', color: '#FF4500', image: 'images/morphs/inferno.png' },
