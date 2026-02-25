@@ -708,14 +708,30 @@ function loadComboToCalculator(comboId) {
 
   // 親1にコンボのすべての遺伝子をホモとしてセット
   state.parent1 = {};
-  for (const morphId of combo.components) {
+  for (let morphId of combo.components) {
+    let statusForCodominant = 'homozygous'; // 通常のコンボではヘテロ表現(Ss)
+
+    // スーパー体の特例指定
+    if (morphId === 'superSnow') {
+      morphId = 'mackSnow';
+      statusForCodominant = 'super'; // スーパー体(SS)
+    } else if (morphId === 'superGiant') {
+      morphId = 'giant';
+      statusForCodominant = 'super'; // スーパー体(SS)
+    }
+
     const morph = MORPH_DATABASE[morphId];
+    if (!morph) {
+      console.warn(`Unknown morph component: ${morphId}`);
+      continue;
+    }
+
     if (morph.type === 'recessive') {
       state.parent1[morphId] = 'homozygous';
     } else if (morph.type === 'dominant') {
-      state.parent1[morphId] = 'heterozygous';
+      state.parent1[morphId] = 'heterozygous'; // 単一の優性遺伝子は通常ヘテロで表現
     } else if (morph.type === 'codominant') {
-      state.parent1[morphId] = 'homozygous';
+      state.parent1[morphId] = statusForCodominant;
     }
   }
 
