@@ -333,6 +333,8 @@ const POLYGENIC_TRAITS = [
   { id: 'sykesSunburst', name: 'Sykes Sunburst', japaneseName: 'サイクスサンバースト', description: 'Steve Sykes氏（Geckos Etc.）が作出した最高峰のタンジェリン血統。「太陽の爆発」の名の通り、蛍光色を帯びた極めて強烈なオレンジ色が全身を覆う。', color: '#FF6347', image: 'images/morphs/sykesSunburst.png' },
   { id: 'godzilla', name: 'Godzilla Super Giant', japaneseName: 'ゴジラスーパージャイアント', description: 'Steve Sykes氏が確立したジャイアント血統の中で、最も巨大になることで知られる「ゴジラ（Godzilla）ライン」。特大の体格と重厚感は圧巻。', color: '#DAA520', image: 'images/morphs/godzilla.png' },
   { id: 'afghanTangerine', name: 'Afghan Tangerine', japaneseName: 'アフガンタンジェリン', description: '原種アフガニクスの血統（Afghanicus）とタンジェリンの交配。野性味あふれる複雑な網目模様（マクラリウス表現）と、タンジェリンの赤みが融合した近年大人気のコンボ。', color: '#CD853F', image: 'images/morphs/afghanTangerine.png' },
+  { id: 'nievesTangerine', name: 'Nieves Tangerine', japaneseName: 'ニエベスタンジェリン', description: 'David Nieves氏が1990年代に確立した歴史ある純血タンジェリンライン。鮮やかなオレンジに繊細なピンクの斑点が特徴。純血個体は現在極めて希少。', color: '#FF7F50', image: 'images/morphs/nievesTangerine.png' },
+  { id: 'redDevil', name: 'Red Devil', japaneseName: 'レッドデビル', description: '韓国のSFFF Geckosなどで知られる、ベルアルビノベースで極彩色のディープオレンジレッドを引き出した超希少・最高級ライン。「赤い悪魔」の名を冠する。', color: '#B22222', image: 'images/morphs/redDevil.png' },
 ];
 
 // ========== ライン・プロジェクト（参考情報） ==========
@@ -896,6 +898,69 @@ const COMBINATION_MORPHS = [
     description: 'Bell Albino + Super Hypo Tangerine。ベルアルビノの真っ赤な目と、高発色のタンジェリンボディの組み合わせ。トレンパーサングローより濃い赤目になる。',
     components: ['bellAlbino'],
     polygenicComponents: ['superHypo', 'tangerine'],
+  },
+  {
+    id: 'onyx',
+    image: 'images/morphs/onyx.png',
+    name: 'Onyx',
+    japaneseName: 'オニキス',
+    description: 'Black Night + Mack Snow + Eclipse。漆黒の瞳（エクリプス）とブラックナイトの黒、スノーの白が織りなすモノトーンの最高峰。ブラックアイスのエクリプス版とも言える。',
+    components: ['blackNight', 'mackSnow', 'eclipse'],
+    polygenicComponents: [],
+  },
+  {
+    id: 'abyss',
+    image: 'images/morphs/abyss.png',
+    name: 'Abyss',
+    japaneseName: 'アビス',
+    description: 'Mack Snow + Enigma + NDBE (Noir Desir Black Eye)。深淵（アビス）を思わせる独特のダークアイと、エニグマの乱れた模様が特徴の激レアコンボ。',
+    components: ['mackSnow', 'enigma', 'ndbe'],
+    polygenicComponents: [],
+  },
+  {
+    id: 'bee',
+    image: 'images/morphs/bee.png',
+    name: 'BEE (Black-Eyed Enigma)',
+    japaneseName: 'BEE（ブラックアイドエニグマ）',
+    description: 'Enigma + Eclipse。エクリプスの真っ黒な目と、エニグマによるスポットの乱れが組み合わさった人気コンボ。「蜂」ではなくBlack Eyed Enigmaの略。',
+    components: ['enigma', 'eclipse'],
+    polygenicComponents: [],
+  },
+  {
+    id: 'redEyeStorm',
+    image: 'images/morphs/redEyeStorm.png',
+    name: 'Red Eye Storm',
+    japaneseName: 'レッドアイストーム',
+    description: 'TUG Snow + Mack Snow + Bell Albino + Enigma。異なる2種のスノーにベルアルビノとエニグマを合わせた超複雑系コンボ。嵐のような模様と真っ赤な瞳。',
+    components: ['tugSnow', 'mackSnow', 'bellAlbino', 'enigma'],
+    polygenicComponents: [],
+  },
+  {
+    id: 'vortex',
+    image: 'images/morphs/vortex.png',
+    name: 'Vortex',
+    japaneseName: 'ボルテックス',
+    description: 'Super Mack Snow + Rainwater Albino + Eclipse + Murphy Patternless。渦（ボルテックス）の名を冠する究極の白系コンボの一つ。',
+    components: ['superMackSnow', 'rainwaterAlbino', 'eclipse', 'murphyPatternless'],
+    polygenicComponents: [],
+  },
+  {
+    id: 'solarEclipse',
+    image: 'images/morphs/solarEclipse.png',
+    name: 'Solar Eclipse',
+    japaneseName: 'ソーラーエクリプス',
+    description: 'Super Hypo Tangerine (SHT) + Eclipse。日食の名が示す通り、燃え盛るタンジェリンの体色に、真っ黒な瞳（エクリプスアイ）が強烈なコントラストを生む。',
+    components: ['eclipse'],
+    polygenicComponents: ['superHypo', 'tangerine'],
+  },
+  {
+    id: 'tangerineAlbino',
+    image: 'images/morphs/tangerineAlbino.png',
+    name: 'Tangerine Albino',
+    japaneseName: 'タンジェリンアルビノ',
+    description: 'Tangerine + 各種Albino。タンジェリンのオレンジ色がアルビノ化することで、非常に美しく明るいオレンジ〜黄色が発色する基本にして至高のコンボ。',
+    components: ['tremperAlbino'], // 便宜上トレンパーを基本とするが他アルビノ版もある
+    polygenicComponents: ['tangerine'],
   },
 ];
 
